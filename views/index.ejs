@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Joke Page</title>
+  <style>
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    .title {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="checkbox"] {
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+
+    .response-area {
+      margin-top: 20px;
+      background-color: #f0f0f0;
+
+      padding: 20px 5px;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    #getAJoke {
+      background-color: #2ecc71;
+    }
+
+    #getAJoke:hover {
+      background-color: #27ae60;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Get a Joke</h1>
+    <form id="jokeForm" method="post">
+      <label class="title">Filter: (None === Any)</label>
+      <label><input type="checkbox" id="Programming" value="Programming" name="filter">Programming</label>
+      <label><input type="checkbox" id="Misc" value="Misc" name="filter">Misc</label>
+      <label><input type="checkbox" id="Dank" value="Dank" name="filter">Dank</label>
+      <label><input type="checkbox" id="Pun" value="Pun" name="filter">Pun</label>
+      <label><input type="checkbox" id="Spooky" value="Spooky" name="filter">Spooky</label>
+      <label><input type="checkbox" id="Christmas" value="Christmas" name="filter">Christmas</label>
+
+      <label class="title">Flags to blocklist:</label>
+      <label><input type="checkbox" id="nsfw" value="nsfw" name="blocklist">NSFW</label>
+      <label><input type="checkbox" id="religious" value="religious" name="blocklist">Religious</label>
+      <label><input type="checkbox" id="political" value="political" name="blocklist">Political</label>
+      <label><input type="checkbox" id="racist" value="racist" name="blocklist">Racist</label>
+      <label><input type="checkbox" id="sexist" value="sexist" name="blocklist">Sexist</label>
+      <label><input type="checkbox" id="explicit" value="explicit" name="blocklist">Explicit</label>
+
+      <label class="title">Search for a word:</label>
+      <input type="text" id="wordInput" name="word">
+
+      <input type="radio" class="hide" id="typeJoke" value="single" name="typeJoke" checked>
+
+      <input id="getAJoke" type="submit" value="Give me a Joke" formaction="/get-joke">
+    </form>
+    <div class="response-area">
+      <p>
+        <%= joke %>
+      </p>
+    </div>
+  </div>
+</body>
+<footer>
+  Made using <a href="https://sv443.net/jokeapi/v2/" target="_blank">JokeAPI</a>
+</footer>
+
+</html>
